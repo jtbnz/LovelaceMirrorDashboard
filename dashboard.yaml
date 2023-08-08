@@ -1,0 +1,461 @@
+kiosk_mode:
+  kiosk: true
+views:
+  - theme: blackened
+    title: Home
+    layout:
+      width: 900
+      max_cols: 1
+      margin: 0px 0px 0px 0px
+      card_margin: 5px 5px 5px 5px
+      grid-template-columns: auto 90px
+      grid-template-rows: auto
+      grid-template-areas: ''
+    type: custom:masonry-layout
+    badges: []
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:digital-clock
+                timeFormat: ' '
+                card_mod: null
+                style: |
+                  ha-card {
+                     font-size: 2.6rem;
+                  }
+              - type: custom:simple-clock-card
+                hide_seconds: false
+                font_size: 7rem
+                padding_size: 36px
+                theme: blackened
+          - type: weather-forecast
+            entity: weather.openweathermap
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:mushroom-template-card
+                primary: |-
+                  XXXXXXXXXXX: {% if is_state(entity, 'home') %}
+                     Home
+                  {% elif state_attr(entity, 'place') != none %}
+                    {{state_attr(entity, 'place')}}
+                  {% elif state_attr(entity, 'address') != none %} 
+                    {{state_attr(entity,'address')}}
+                  {% else %}
+                    Moving
+                  {% endif %}
+                           
+                secondary: >
+                  Since {{ state_attr(entity,
+                  'at_loc_since').astimezone().timestamp() |
+                  timestamp_custom('%a %H:%M') }}
+
+                  ({{state_attr(entity,'battery_level') }}%)
+                icon: |
+                  {% if is_state(entity, 'home') %}
+                    mdi:home
+                    {% elif state_attr(entity, 'place') != none %}
+                      mdi:factory
+                    {% elif state_attr(entity, 'address') != none %} 
+                      mdi:city
+                  {% else %}
+                    mdi:car
+                  {% endif %}
+                badge_icon: ''
+                multiline_secondary: false
+                entity: device_tracker.XXXXXXXXXXX
+                icon_color: |-
+                  {% if state_attr(entity,'battery_level') >= 40 %}
+                    green
+                  {% elif state_attr(entity,'battery_level') >= 25 %} 
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                fill_container: true
+                card_mod:
+                  style: |
+                    ha-card {
+                       --card-primary-font-size: 2rem;
+                       --card-secondary-font-size: 1.1rem;
+                    }
+              - type: custom:mushroom-template-card
+                primary: |-
+                  XXXXXXXXXXX:    {% if is_state(entity, 'home') %}
+                         Home
+                      {% elif state_attr(entity, 'place') != none %}
+                        {{state_attr(entity, 'place')}}
+                      {% elif state_attr(entity, 'address') != none %} 
+                        {{state_attr(entity,'address')}}
+                      {% else %}
+                        Moving
+                      {% endif %}    
+                           
+                secondary: |2-
+
+                      Since {{ state_attr(entity, 'at_loc_since').astimezone().timestamp() | timestamp_custom('%a %H:%M') }}
+                      ({{state_attr(entity,'battery_level') }}%)
+                icon: |
+                  {% if is_state(entity, 'home') %}
+                    mdi:home
+                    {% elif state_attr(entity, 'place') != none %}
+                      mdi:factory
+                    {% elif state_attr(entity, 'address') != none %} 
+                      mdi:city
+                  {% else %}
+                    mdi:car
+                  {% endif %}
+                badge_icon: ''
+                multiline_secondary: false
+                entity: device_tracker.XXXXXXXXXXX
+                icon_color: |-
+                  {% if state_attr(entity,'battery_level') >= 40 %}
+                    green
+                  {% elif state_attr(entity,'battery_level') >= 25 %} 
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                card_mod:
+                  style: |
+                    ha-card {
+                       --card-primary-font-size: 2rem;
+                       --card-secondary-font-size: 1.1rem;
+                    }
+              - type: custom:mushroom-template-card
+                primary: |-
+                  XXXXXXXXXXX:    {% if is_state(entity, 'home') %}
+                         Home
+                      {% elif state_attr(entity, 'place') != none %}
+                        {{state_attr(entity, 'place')}}
+                      {% elif state_attr(entity, 'address') != none %} 
+                        {{state_attr(entity,'address')}}
+                      {% else %}
+                        Moving
+                      {% endif %}    
+                           
+                secondary: |2-
+
+                      Since {{ state_attr(entity, 'at_loc_since').astimezone().timestamp() | timestamp_custom('%a %H:%M') }}
+                      ({{state_attr(entity,'battery_level') }}%)
+                      
+                icon: |
+                  {% if is_state(entity, 'home') %}
+                    mdi:home
+                    {% elif state_attr(entity, 'place') != none %}
+                      mdi:factory
+                    {% elif state_attr(entity, 'address') != none %} 
+                      mdi:city
+                  {% else %}
+                    mdi:car
+                  {% endif %}
+                badge_icon: ''
+                multiline_secondary: false
+                entity: device_tracker.XXXXXXXXXXX
+                icon_color: |-
+                  {% if state_attr(entity,'battery_level') >= 40 %}
+                    green
+                  {% elif state_attr(entity,'battery_level') >= 25 %} 
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                card_mod:
+                  style: |
+                    ha-card {
+                       --card-primary-font-size: 2rem;
+                       --card-secondary-font-size: 1.1rem;
+                    }
+              - type: custom:mushroom-template-card
+                primary: |-
+                  XXXXXXXXXXX:     {% if is_state(entity, 'home') %}
+                         Home
+                      {% elif state_attr(entity, 'place') != none %}
+                        {{state_attr(entity, 'place')}}
+                      {% elif state_attr(entity, 'address') != none %} 
+                        {{state_attr(entity,'address')}}
+                      {% else %}
+                        Moving
+                      {% endif %}    
+                           
+                secondary: |2-
+
+                      Since {{ state_attr(entity, 'at_loc_since').astimezone().timestamp() | timestamp_custom('%a %H:%M') }}
+                      ({{state_attr(entity,'battery_level') }}%)
+                   
+                icon: |
+                  {% if is_state(entity, 'home') %}
+                    mdi:home
+                    {% elif state_attr(entity, 'place') != none %}
+                      mdi:factory
+                    {% elif state_attr(entity, 'address') != none %} 
+                      mdi:city
+                  {% else %}
+                    mdi:car
+                  {% endif %}
+                badge_icon: ''
+                multiline_secondary: false
+                entity: device_tracker.XXXXXXXXXXX
+                icon_color: |-
+                  {% if state_attr(entity,'battery_level') >= 40 %}
+                    green
+                  {% elif state_attr(entity,'battery_level') >= 25 %} 
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                card_mod:
+                  style: |
+                    ha-card {
+                       --card-primary-font-size: 2rem;
+                       --card-secondary-font-size: 1.1rem;
+                    }
+              - type: custom:mushroom-template-card
+                primary: |-
+                  XXXXXXXXXXX:    {% if is_state(entity, 'home') %}
+                         Home
+                      {% elif state_attr(entity, 'place') != none %}
+                        {{state_attr(entity, 'place')}}
+                      {% elif state_attr(entity, 'address') != none %} 
+                        {{state_attr(entity,'address')}}
+                      {% else %}
+                        Moving
+                      {% endif %}    
+                           
+                secondary: >
+
+                  Since {{ state_attr(entity,
+                  'at_loc_since').astimezone().timestamp() |
+                  timestamp_custom('%a %H:%M') }}
+
+                  ({{state_attr(entity,'battery_level') }}%)
+                icon: |
+                  {% if is_state(entity, 'home') %}
+                    mdi:home
+                    {% elif state_attr(entity, 'place') != none %}
+                      mdi:factory
+                    {% elif state_attr(entity, 'address') != none %} 
+                      mdi:city
+                  {% else %}
+                    mdi:car
+                  {% endif %}
+                badge_icon: ''
+                multiline_secondary: false
+                entity: device_tracker.XXXXXXXXXXX
+                icon_color: |-
+                  {% if state_attr(entity,'battery_level') >= 40 %}
+                    green
+                  {% elif state_attr(entity,'battery_level') >= 25 %} 
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                card_mod:
+                  style: |
+                    ha-card {
+                       --card-primary-font-size: 2rem;
+                       --card-secondary-font-size: 1.1rem;
+                    }
+              - type: custom:mushroom-template-card
+                primary: |-
+                  XXXXXXXXXXX:    {% if is_state(entity, 'home') %}
+                         Home
+                      {% elif state_attr(entity, 'place') != none %}
+                        {{state_attr(entity, 'place')}}
+                      {% elif state_attr(entity, 'address') != none %} 
+                        {{state_attr(entity,'address')}}
+                      {% else %}
+                        Moving
+                      {% endif %}
+                           
+                secondary: |2
+
+                      Since {{ state_attr(entity, 'at_loc_since').astimezone().timestamp() | timestamp_custom('%a %H:%M') }}
+                      ({{state_attr(entity,'battery_level') }}%)
+                icon: |
+                  {% if is_state(entity, 'home') %}
+                    mdi:home
+                    {% elif state_attr(entity, 'place') != none %}
+                      mdi:factory
+                    {% elif state_attr(entity, 'address') != none %} 
+                      mdi:city
+                  {% else %}
+                    mdi:car
+                  {% endif %}
+                badge_icon: ''
+                multiline_secondary: false
+                entity: device_tracker.XXXXXXXXXXX
+                icon_color: |-
+                  {% if state_attr(entity,'battery_level') >= 40 %}
+                    green
+                  {% elif state_attr(entity,'battery_level') >= 25 %} 
+                    yellow
+                  {% else %}
+                    red
+                  {% endif %}
+                card_mod:
+                  style: |
+                    ha-card {
+                       --card-primary-font-size: 2rem;
+                       --card-secondary-font-size: 1.1rem;
+                    }
+          - type: custom:todoist-card
+            entity: sensor.alexa_shopping_list
+            show_item_delete: false
+            show_item_close: true
+            use_quick_add: false
+            show_item_add: false
+            show_completed: 0
+      - type: horizontal-stack
+        cards:
+          - type: custom:power-flow-card
+            title: Energy Now
+            kw_decimals: 2
+            entities:
+              battery: sensor.solarnet_power_battery
+              battery_charge: sensor.byd_battery_box_premium_hv_state_of_charge
+              grid: sensor.solarnet_power_grid
+              solar: sensor.solarnet_power_photovoltaics
+            inverted_entities: null
+            card_mod:
+              style: |
+                ha-card {
+                  --ha-card-background: black;
+                }
+          - title: Energy Today
+            type: energy-distribution
+            link_dashboard: false
+          - type: custom:weather-radar-card
+            map_style: Dark
+            data_source: RainViewer-DarkSky
+            zoom_level: 10
+            show_recenter: false
+            square_map: true
+            extra_labels: false
+            show_playback: false
+            show_range: false
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:mushroom-template-card
+                primary: Front Door
+                secondary: |
+                  {% if states.binary_sensor.front_door_open.state == "on" %}
+                     Open/Unlocked
+                  {% elif states.lock.front_door.state == "locked" %}
+                      Closed/Locked
+                  {% elif states.lock.front_door.state == "unlocked" %}
+                      Closed/Unlocked{% endif %}
+                icon: |-
+                  {% if states.binary_sensor.front_door_open.state == "on" %}
+                  mdi:door-open
+                    {% elif states.lock.front_door.state == "locked" %}
+                  mdi:door-closed-lock
+                      {% elif states.lock.front_door.state == "unlocked" %}
+                  mdi:door-closed
+                  {% endif %}
+                icon_color: |-
+                  {% if states.binary_sensor.front_door_open.state == "on" %}
+                  red
+                    {% elif states.lock.front_door.state == "locked" %}
+                  green
+                      {% elif states.lock.front_door.state == "unlocked" %}
+                  yellow
+                  {% endif %}
+              - type: custom:mushroom-entity-card
+                entity: cover.garage_door_garage
+                name: Garage Door
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.garagesidedoor_contact
+                name: Garage Side Door
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.contact_sensor
+                name: Family Room Ranch Slider
+                icon: mdi:door-sliding
+              - type: horizontal-stack
+                cards:
+                  - type: entity
+                    entity: sensor.rain_gauge_rain
+                    name: Rain Now
+                  - type: entity
+                    entity: sensor.rain_gauge_rain_today
+                    name: Rain Today
+              - type: horizontal-stack
+                cards:
+                  - type: entity
+                    entity: sensor.anemometer_gust_strength
+                    name: Gust
+                  - type: entity
+                    entity: sensor.anemometer_wind_strength
+                    name: Strength
+              - type: horizontal-stack
+                cards:
+                  - type: entity
+                    entity: sensor.netatmo_italy_home_inside_co2
+                    state_color: true
+                  - type: custom:gap-card
+          - type: vertical-stack
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.lounge_door
+                name: Lounge Folding Door
+                icon: mdi:door-sliding
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.dining_ranchslider_contact
+                name: Dining Room Ranch Slider
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.dining_bi_fold_contact
+                name: Dining Room Folding Door
+              - type: custom:gap-card
+                height: 60
+          - type: entities
+            entities:
+              - entity: sensor.bedroom_button_temperature
+                name: Bedroom
+              - entity: sensor.XXXXXXXXXXX_bedroom_temperature_temperature
+                name: XXXXXXXXXXXs Room
+              - entity: sensor.office_temp_temperature
+                name: Office
+              - entity: sensor.wardrobe_motion_temperature
+                name: Wardrobe
+              - entity: sensor.netatmo_italy_home_inside_temperature
+                name: Kitchen
+              - entity: sensor.garage_temp_temperature
+                name: Garage
+              - entity: sensor.netatmo_italy_home_inside_outside_temperature
+                name: Outside
+              - entity: sensor.roof_temp_temperature
+                name: Roof
+              - entity: sensor.garage_roof_temperature
+                name: Garage Roof
+          - type: custom:atomic-calendar-revive
+            entities:
+              - entity: calendar.calendar_family
+                name: Family
+                color: green
+              - entity: calendar.calendar_tripit
+                color: green
+                maxDaysToShow: 31
+            enableModeChange: true
+            maxDaysToShow: 31
+            maxEventCount: 10
+            showDescription: false
+            showWeekDay: true
+            disableEventLink: true
+            showTimeRemaining: false
+            showEventDate: true
+            disableLocationLink: false
+            defaultMode: Event
+            compactMode: true
+            showMultiDay: false
+            showRelativeTime: true
+            showLocation: false
+            sortByStartTime: true
+            hideDuplicates: true
+            showMultiDayEventParts: false
+            dateFormat: LL
+            showDate: false
