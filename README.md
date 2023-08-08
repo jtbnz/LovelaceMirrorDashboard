@@ -1,6 +1,6 @@
 # LovelaceMirrorDashboard
 public view of my mirror dashboard
-<a href="Mirror.png"><img src="Mirror.png" height=400></a>
+<a href="Mirror-small.png"><img src="Mirror-small.png" height=400></a>
 * Layout: I ended up using Layout-Card and Card-Mod to change it to a single column with horizontal and vertical cards filled with the individual cards. found some extra settings to remove the vertical scroll bar
 
 * Time and Date, I wanted the date above the time and I ened up using two different cards - probably could have used the digital-clock one for both
