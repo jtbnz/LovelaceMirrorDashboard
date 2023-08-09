@@ -1,5 +1,5 @@
 # LovelaceMirrorDashboard
-public view of my mirror dashboard
+
 <a href="Mirror-small.jpg"><img src="Mirror-small.jpg" height=400></a>
 * Layout: I ended up using Layout-Card and Card-Mod to change it to a single column with horizontal and vertical cards filled with the individual cards. found some extra settings to remove the vertical scroll bar
 
